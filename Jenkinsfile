@@ -56,21 +56,23 @@ pipeline {
                 """
             }
         }
-    }
-
-            stage('Environment Analysis') {
+        
+        stage('Environment Analysis') {
             parallel {
                 stage('Printing All Global Variables') {
                     steps {
-                    sh """
-                    env
-                    """
+                        sh """
+                        env
+                        """
                     }
-                } stage('Execute Shell') {
+                } 
+                
+                stage('Execute Shell') {
                     steps {
                         sh 'echo "Hello Student. Thanks for keeping up!"'
                     }
                 }
+                
                 stage('Print ENV variable') {
                     steps {
                         sh "echo ${APP_ENV}"
@@ -78,4 +80,5 @@ pipeline {
                 }
             }   
         }
+    }
 }
