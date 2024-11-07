@@ -55,6 +55,17 @@ pipeline {
                 env
                 """
             }
+        stage('Environment Analysis') {
+            parallel {
+                sh """
+                env
+                """
+            }
+        }
+        }stage('Execute Shell') {
+            steps {
+                sh 'echo "Hello Student. Thanks for keeping up!"'
+            }
         }
 
     }   
